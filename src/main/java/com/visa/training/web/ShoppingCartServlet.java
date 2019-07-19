@@ -39,31 +39,31 @@ public class ShoppingCartServlet extends HttpServlet {
 			String[] books=(String[])session.getAttribute("books");
 			String[] cars=(String[])session.getAttribute("cars");
 			
-			PrintWriter pw=response.getWriter();
-			pw.println("<html><body>");
-			pw.println("<h4>books<h4>");
-			pw.println("<ul>");
+			/*
+			 * PrintWriter pw=response.getWriter(); pw.println("<html><body>");
+			 * pw.println("<h4>books<h4>"); pw.println("<ul>");
+			 * 
+			 * Stream.of(books).map(s->"<li>"+s+"</li>").forEach(pw::println);
+			 * 
+			 * pw.println("</ul>");
+			 * 
+			 * pw.println("<h4>cars<h4>"); pw.println("<ul>");
+			 * 
+			 * Stream.of(cars).map(s->"<li>"+s+"</li>").forEach(pw::println);
+			 * 
+			 * pw.println("</ul>");
+			 * 
+			 * pw.println("<h4>bikes<h4>"); pw.println("<ul>");
+			 * 
+			 * Stream.of(selectedBikes).map(s->"<li>"+s+"</li>").forEach(pw::println);
+			 * 
+			 * pw.println("</ul>");
+			 * 
+			 * 
+			 * pw.println("</body></html>");
+			 */
 			
-			Stream.of(books).map(s->"<li>"+s+"</li>").forEach(pw::println);
-						
-			pw.println("</ul>");
-				
-			pw.println("<h4>cars<h4>");
-			pw.println("<ul>");
-			
-			Stream.of(cars).map(s->"<li>"+s+"</li>").forEach(pw::println);
-						
-			pw.println("</ul>");
-			
-			pw.println("<h4>bikes<h4>");
-			pw.println("<ul>");
-			
-			Stream.of(selectedBikes).map(s->"<li>"+s+"</li>").forEach(pw::println);
-						
-			pw.println("</ul>");
-			
-			
-			pw.println("</body></html>");
+			request.getRequestDispatcher("shopcart_el.jsp").forward(request, response);
 		}
 		
 	}
